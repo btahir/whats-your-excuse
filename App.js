@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, WebView } from 'react-native';
 import { createBottomTabNavigator, StackNavigator } from 'react-navigation';
 import { MaterialCommunityIcons, MaterialIcons, FontAwesome } from '@expo/vector-icons';
 
@@ -10,24 +10,25 @@ const Hello = () => (
   );
 
 const Goodbye = () => (
-  <View style={styles.container}>
-    <Text>Goodbye!</Text>
-  </View>
+    <WebView
+      source={{uri: 'https://github.com/facebook/react-native'}}
+      style={styles.container}
+    />
   );
 
 const Tabs = createBottomTabNavigator({
   Hello: {
     screen: Hello,
     navigationOptions: {
-      tabBarLabel: 'Hello',
-      tabBarIcon: <MaterialIcons name='question-answer' size={30} color={'gray'} />
+      tabBarLabel: 'Set Reminder',
+      tabBarIcon: <MaterialIcons name='timer' size={30} color={'gray'} />
     },
   },
   Quiz: {
     screen: Goodbye,
     navigationOptions: {
-      tabBarLabel: 'Goodbye',
-      tabBarIcon: <MaterialIcons name='question-answer' size={30} color={'gray'} />
+      tabBarLabel: 'Today\'s Excuse Killer',
+      tabBarIcon: <MaterialIcons name='person-pin' size={30} color={'gray'} />
     },
   },
 }, {
