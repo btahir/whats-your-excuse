@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, WebView } from 'react-native';
 import { createBottomTabNavigator, StackNavigator } from 'react-navigation';
 import { MaterialCommunityIcons, MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import { setLocalNotification } from './utils/helpers';
 
 const Hello = () => (
   <View style={styles.container}>
@@ -11,7 +12,7 @@ const Hello = () => (
 
 const Goodbye = () => (
     <WebView
-      source={{uri: 'https://github.com/facebook/react-native'}}
+      source={{uri: 'https://whatsyourexcuse2018.wordpress.com/daily-excuse-killer'}}
       style={styles.container}
     />
   );
