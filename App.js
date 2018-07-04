@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, WebView } from 'react-native';
 import { createBottomTabNavigator, StackNavigator } from 'react-navigation';
 import { MaterialCommunityIcons, MaterialIcons, FontAwesome } from '@expo/vector-icons';
-import { setLocalNotification } from './utils/helpers';
+import Alert from './components/alert-page';
 
 const Hello = () => (
   <View style={styles.container}>
@@ -18,8 +18,8 @@ const Goodbye = () => (
   );
 
 const Tabs = createBottomTabNavigator({
-  Hello: {
-    screen: Hello,
+  Alert: {
+    screen: Alert,
     navigationOptions: {
       tabBarLabel: 'Set Reminder',
       tabBarIcon: <MaterialIcons name='timer' size={30} color={'gray'} />
