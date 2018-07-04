@@ -2,15 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View, WebView } from 'react-native';
 import { createBottomTabNavigator, StackNavigator } from 'react-navigation';
 import { MaterialCommunityIcons, MaterialIcons, FontAwesome } from '@expo/vector-icons';
-import Alert from './components/alert-page';
+import Alert from './components/Alert';
 
-const Hello = () => (
-  <View style={styles.container}>
-    <Text>Hello!</Text>
-  </View>
-  );
-
-const Goodbye = () => (
+const Motiv = () => (
     <WebView
       source={{uri: 'https://whatsyourexcuse2018.wordpress.com/daily-excuse-killer'}}
       style={styles.container}
@@ -26,7 +20,7 @@ const Tabs = createBottomTabNavigator({
     },
   },
   Quiz: {
-    screen: Goodbye,
+    screen: Motiv,
     navigationOptions: {
       tabBarLabel: 'Today\'s Excuse Killer',
       tabBarIcon: <MaterialIcons name='person-pin' size={30} color={'gray'} />
@@ -57,6 +51,10 @@ const Tabs = createBottomTabNavigator({
 });
 
 export default class App extends React.Component {
+
+  componentDidMount() {
+
+  }
 
   render() {
     return (
