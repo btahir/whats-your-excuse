@@ -24,6 +24,22 @@ function createNotification () {
   }
 }
 
+export async function getLocalNotification () {
+  try {
+    const value = await AsyncStorage.getItem(NOTIFICATION_KEY);
+    if (value !== null) {
+      // We have data!!
+      console.log(value)
+      return value
+    } else {
+      console.log("nothing here")
+      return false
+    }
+   } catch (error) {
+     // Error retrieving data
+   }
+}
+
 export function setLocalNotification (hour, minutes) {
   AsyncStorage.getItem(NOTIFICATION_KEY)
     .then(JSON.parse)

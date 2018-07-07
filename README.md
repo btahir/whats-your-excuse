@@ -1,4 +1,9 @@
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
+
+What's Your Excuse? is an App that sends you daily motivation boosts by telling stories about people who were presented with some of the hardest challenges in life and worked/ are working to overcome them. It gives you perspective and helps re-frame your own story.
+
+**********************
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
 

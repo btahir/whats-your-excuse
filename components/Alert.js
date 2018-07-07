@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, DatePickerIOS, Platform, TimePickerAndroid } from 'react-native';
-import { setLocalNotification } from '../utils/helpers';
+import { getLocalNotification, setLocalNotification, clearLocalNotification } from '../utils/helpers';
 import Picker from './Picker';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 
@@ -17,6 +17,13 @@ export default class Alert extends React.Component {
  
   }
 
+  async componentDidMount() {
+  	if(getLocalNotification()) {
+
+  			await this.setState({ timeSet: true });
+  		}
+  	}
+
   _showDateTimePicker = () => this.setState({ isDateTimePickerVisible: true });
 
   _hideDateTimePicker = () => this.setState({ isDateTimePickerVisible: false });
@@ -30,6 +37,11 @@ export default class Alert extends React.Component {
 
 	platformPicker = () => {
 	return Platform.OS === 'ios' ? true : false 
+	}
+
+	clearNotification = () => {
+		clearLocalNotification();
+		this.setState({ timeSet: false });
 	}
 
   newDate = () => {
@@ -71,7 +83,7 @@ export default class Alert extends React.Component {
 	        onPress={this._showDateTimePicker}
 	        style={styles.button}
 	        >
-	          <Text>Set Time</Text>
+	          <Text>Set Alert</Text>
 	        </TouchableOpacity>
 	        <DateTimePicker
 	          isVisible={this.state.isDateTimePickerVisible}
@@ -82,6 +94,14 @@ export default class Alert extends React.Component {
 	      </View>
 	      {this.state.timeSet ? <Text style={styles.subtext}>Current Alert Set At {this.newDate().hour} : {this.newDate().minutes} {this.newDate().zone}</Text> : 
 	      <Text style={styles.subtext}>You Have Not Set Any Alert</Text>}
+	      <View>
+	      	<TouchableOpacity
+	      		onPress={() => this.clearNotification()}
+	        	style={styles.button}
+	        >
+	      		<Text>Clear Alert</Text>
+	      	</TouchableOpacity>
+	      </View>
 			</View>
     );
 
