@@ -24,7 +24,7 @@ function createNotification () {
   }
 }
 
-export function setLocalNotification () {
+export function setLocalNotification (hour, minutes) {
   AsyncStorage.getItem(NOTIFICATION_KEY)
     .then(JSON.parse)
     .then((data) => {
@@ -36,8 +36,8 @@ export function setLocalNotification () {
 
               let tomorrow = new Date()
               tomorrow.setDate(tomorrow.getDate() + 1)
-              tomorrow.setHours(20)
-              tomorrow.setMinutes(0)
+              tomorrow.setHours(hour)
+              tomorrow.setMinutes(minutes)
 
               Notifications.scheduleLocalNotificationAsync(
                 createNotification(),

@@ -27,3 +27,12 @@ export default class Picker extends React.Component {
 		: <View></View>
 	}
 }
+
+
+    		// {Platform.OS === 'ios' ?
+		    // 	<DatePickerIOS
+		    //       date={this.state.chosenDate}
+		    //       onDateChange={this.setDate}
+		    //       mode='time'
+		    //   /> : 
+		    //   <View>Android picker</View>}
